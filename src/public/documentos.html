@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Documentos | Eletro Store</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/documentos.css">
+</head>
+
+<body>
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">E</div>
+            <span>Eletro Store</span>
+        </div>
+
+        <div class="menu-title">MENU PRINCIPAL</div>
+
+        <nav class="sidebar-menu">
+
+            <a href="/dashboard" class="menu-item">
+                <span><img src="./assets/dashboard_24dp.svg" alt="Dashboard"></span>
+                Dashboard
+            </a>
+
+            <a href="/produtos.html" class="menu-item">
+                <span><img src="./assets/orders_24dp.svg" alt="Produtos"></span>
+                Produtos
+            </a>
+
+            <a href="/estoque.html" class="menu-item">
+                <span><img src="./assets/warehouse_24dp.svg" alt="Estoque"></span>
+                Estoque
+            </a>
+
+            <a href="/vendas.html" class="menu-item">
+                <span><img src="./assets/sell_24dp.svg" alt="Vendas"></span>
+                Vendas
+            </a>
+
+            <a href="/documentos.html" class="menu-item active">
+                <span><img src="./assets/description_24dp.svg" alt="Documentos"></span>
+                Documentos
+            </a>
+
+            <a href="/contas.html" class="menu-item">
+                <span><img src="./assets/receipt_24dp.svg" alt="Contas"></span>
+                Contas
+            </a>
+
+        </nav>
+
+<a href="/conta.html" class="sidebar-profile">
+    <div class="profile-avatar">AD</div>
+
+    <div class="profile-info">
+        <strong>Administrador</strong>
+        <small>admin@eletrostore.com</small>
+    </div>
+</a>
+
+    </aside>
+
+    <main class="main-content">
+
+        <header class="documents-header">
+            <div>
+                <h1>Documentos</h1>
+                <p>Consulte comprovantes e notas promissórias das vendas.</p>
+            </div>
+
+            <button class="btn btn-secondary" id="btn-atualizar">
+                Atualizar
+            </button>
+        </header>
+
+        <!-- Resumo -->
+
+        <section class="documents-summary">
+
+            <div class="document-summary-card">
+                <div class="summary-icon blue"><img src="./assets/description_24dp.svg" alt="docs"></div>
+                <div>
+                    <span>Documentos registrados</span>
+                    <strong id="total-documentos">0</strong>
+                </div>
+            </div>
+
+            <div class="document-summary-card">
+                <div class="summary-icon green"><img src="./assets/attach_money_24dp.svg" alt="money"></div>
+                <div>
+                    <span>Vendas à vista</span>
+                    <strong id="total-vista">0</strong>
+                </div>
+            </div>
+
+            <div class="document-summary-card">
+                <div class="summary-icon orange"><img src="./assets/receipt_24dp.svg" alt="prazo"></div>
+                <div>
+                    <span>Vendas a prazo</span>
+                    <strong id="total-prazo">0</strong>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Tabela -->
+
+        <section class="documents-section">
+
+            <div class="documents-toolbar">
+
+                <div>
+                    <h2>Histórico de documentos</h2>
+                    <p>Todos os documentos vinculados às vendas.</p>
+                </div>
+
+                <div class="documents-filters">
+
+                    <input
+                        type="text"
+                        id="pesquisa-documento"
+                        placeholder="Pesquisar cliente ou venda..."
+                    >
+
+                    <select id="filtro-documento">
+                        <option value="todos">Todos os documentos</option>
+                        <option value="avista">À vista</option>
+                        <option value="prazo">A prazo</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="documents-table-container">
+
+                <table class="documents-table">
+
+                    <thead>
+                        <tr>
+                            <th>VENDA</th>
+                            <th>CLIENTE</th>
+                            <th>TIPO</th>
+                            <th>DATA</th>
+                            <th>VALOR</th>
+                            <th>STATUS</th>
+                            <th>AÇÕES</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="lista-documentos">
+                        <tr>
+                            <td colspan="7">Carregando documentos...</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="documents-footer">
+                <span id="contador-documentos">0 documentos encontrados</span>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Modal de documento -->
+
+    <div class="modal-overlay" id="modal-documento">
+
+        <div class="document-modal">
+
+            <div class="document-modal-header">
+                <div>
+                    <h2 id="titulo-documento">Documento</h2>
+                    <p>Visualização do documento selecionado.</p>
+                </div>
+
+                <button class="modal-close" id="btn-fechar-modal">
+                    &times;
+                </button>
+            </div>
+
+            <div id="conteudo-documento" class="document-content">
+                Carregando...
+            </div>
+
+            <div class="document-modal-actions">
+                <button class="btn btn-secondary" id="btn-fechar-documento">
+                    Fechar
+                </button>
+
+                <button class="btn btn-primary" id="btn-imprimir">
+                    Imprimir documento
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="./js/documentos.js"></script>
+
+</body>
+</html>

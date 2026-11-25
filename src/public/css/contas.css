@@ -1,0 +1,399 @@
+
+.main-content {
+    margin-left: 216px;
+    width: calc(100% - 216px);
+    min-height: 100vh;
+    padding: 32px;
+}
+
+/* CABEÇALHO */
+
+.accounts-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.accounts-header h1 {
+    font-size: 26px;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.accounts-header p {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* RESUMO */
+
+.accounts-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.account-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: var(--shadow-sm);
+    min-width: 0;
+}
+
+.account-card span {
+    display: block;
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 7px;
+}
+
+.account-card strong {
+    font-size: 20px;
+    color: var(--text-primary);
+    overflow-wrap: anywhere;
+}
+
+.account-icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.account-icon.blue {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+.account-icon.green {
+    background: var(--success-light);
+    color: var(--success);
+}
+
+.account-icon.orange {
+    background: var(--warning-light);
+    color: var(--warning);
+}
+
+.account-icon.red {
+    background: var(--danger-light);
+    color: var(--danger);
+}
+
+/* SEÇÕES */
+
+.accounts-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 25px;
+}
+
+.accounts-toolbar {
+    padding: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.accounts-toolbar h2 {
+    font-size: 17px;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+}
+
+.accounts-toolbar p {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.accounts-filters {
+    display: flex;
+    gap: 10px;
+}
+
+.accounts-filters input,
+.accounts-filters select {
+    height: 40px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 0 12px;
+    outline: none;
+    background: var(--surface);
+    color: var(--text-primary);
+}
+
+.accounts-filters input {
+    width: 240px;
+}
+
+.accounts-filters input:focus,
+.accounts-filters select:focus {
+    border-color: var(--primary);
+}
+
+/* TABELAS */
+
+.accounts-table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.accounts-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.accounts-table th {
+    background: var(--background);
+    color: var(--text-secondary);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 15px 16px;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--border);
+}
+
+.accounts-table td {
+    padding: 15px 16px;
+    font-size: 12px;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+}
+
+.accounts-table tbody tr:hover {
+    background: var(--surface-hover);
+}
+
+.accounts-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.account-sale-id {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.account-client {
+    font-weight: 600;
+}
+
+.account-status {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.account-status.pendente {
+    color: var(--warning);
+    background: var(--warning-light);
+}
+
+.account-status.parcial {
+    color: var(--info);
+    background: var(--info-light);
+}
+
+.account-status.pago {
+    color: var(--success);
+    background: var(--success-light);
+}
+
+.account-actions button {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: var(--radius-sm);
+    padding: 7px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.account-actions button:hover {
+    background: var(--primary-light);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.accounts-footer {
+    padding: 15px 20px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+/* MODAL */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 100;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.payment-modal {
+    width: 100%;
+    max-width: 500px;
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.payment-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px;
+    border-bottom: 1px solid var(--border);
+}
+
+.payment-modal-header h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: var(--text-primary);
+}
+
+.payment-modal-header p {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 27px;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+#form-pagamento {
+    padding: 22px;
+}
+
+.payment-sale-info {
+    display: grid;
+    gap: 14px;
+    padding: 15px;
+    background: var(--background);
+    border-radius: var(--radius-md);
+    margin-bottom: 20px;
+}
+
+.payment-sale-info span {
+    display: block;
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.payment-sale-info strong {
+    font-size: 14px;
+    color: var(--text-primary);
+}
+
+#form-pagamento .form-group {
+    margin-bottom: 16px;
+}
+
+#mensagem-pagamento {
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+#mensagem-pagamento.erro {
+    color: var(--danger);
+}
+
+#mensagem-pagamento.sucesso {
+    color: var(--success);
+}
+
+.payment-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 1200px) {
+    .accounts-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .accounts-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .accounts-filters {
+        width: 100%;
+    }
+
+    .accounts-filters input {
+        flex: 1;
+        width: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .accounts-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .accounts-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .accounts-filters {
+        flex-direction: column;
+    }
+
+    .payment-modal-actions {
+        flex-direction: column-reverse;
+    }
+
+    .payment-modal-actions button {
+        width: 100%;
+    }
+}

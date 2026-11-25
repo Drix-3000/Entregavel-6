@@ -1,0 +1,455 @@
+
+/* =================================
+   ELETRO STORE - DASHBOARD
+================================= */
+
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    background: #F5F7FB;
+}
+
+/* =================================
+   CONTEÚDO PRINCIPAL
+================================= */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    margin-left: 216px;
+}
+
+/* =================================
+   CABEÇALHO
+================================= */
+
+.topbar {
+    min-height: 58px;
+    padding: 0 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+
+    background: #FFFFFF;
+    border-bottom: 1px solid #E7EBF2;
+}
+
+.breadcrumb {
+    color: #8A95A8;
+    font-size: 11px;
+}
+
+.breadcrumb strong {
+    color: #344054;
+    font-weight: 600;
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.topbar-actions input {
+    width: 220px;
+    height: 34px;
+
+    padding: 0 12px;
+
+    border: 1px solid #E7EBF2;
+    border-radius: 6px;
+
+    outline: none;
+
+    background: #FBFCFE;
+
+    font-size: 11px;
+}
+
+.topbar-actions input:focus {
+    border-color: #9BBCFF;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.top-avatar {
+    width: 27px;
+    height: 27px;
+
+    background: #E8EEF8;
+    color: #42526B;
+}
+
+/* =================================
+   ÁREA DA DASHBOARD
+================================= */
+
+.dashboard-content {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 28px 30px 36px;
+}
+
+.page-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+
+    margin-bottom: 22px;
+}
+
+.page-heading h1 {
+    margin: 0 0 6px;
+
+    color: #172033;
+
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+}
+
+.page-heading p {
+    margin: 0;
+
+    color: #718096;
+    font-size: 12px;
+}
+
+/* =================================
+   BOTÕES
+================================= */
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 35px;
+    padding: 0 14px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: #2563EB;
+    color: #FFFFFF;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+.btn-primary:hover {
+    background: #1D4ED8;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    padding: 6px 10px;
+
+    border: 1px solid #E7EBF2;
+    border-radius: 5px;
+
+    background: #FFFFFF;
+    color: #46536A;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+.btn-secondary:hover {
+    border-color: #B8CDF8;
+    color: #2563EB;
+}
+
+/* =================================
+   INDICADORES
+================================= */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+
+    margin-bottom: 18px;
+}
+
+.stat-card {
+    min-height: 94px;
+    padding: 17px 18px;
+
+    border: 1px solid #E7EBF2;
+    border-radius: 9px;
+
+    background: #FFFFFF;
+
+    box-shadow: 0 2px 7px rgba(16, 35, 72, 0.025);
+}
+
+.stat-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #788398;
+    font-size: 10px;
+}
+
+.stat-indicator {
+    width: 9px;
+    height: 9px;
+    border-radius: 3px;
+}
+
+.stat-indicator.blue {
+    background: #DBEAFE;
+}
+
+.stat-indicator.green {
+    background: #DCFCE7;
+}
+
+.stat-indicator.yellow {
+    background: #FEF3C7;
+}
+
+.stat-indicator.red {
+    background: #FEE2E2;
+}
+
+.stat-card h2 {
+    margin: 8px 0 0;
+
+    color: #172033;
+
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+}
+
+/* =================================
+   CARD DE CONTEÚDO
+================================= */
+
+.content-card {
+    overflow: hidden;
+
+    border: 1px solid #E7EBF2;
+    border-radius: 9px;
+
+    background: #FFFFFF;
+
+    box-shadow: 0 2px 7px rgba(16, 35, 72, 0.025);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding: 17px 19px 14px;
+}
+
+.card-header h2 {
+    margin: 0;
+
+    color: #172033;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.card-header p {
+    margin: 4px 0 0;
+
+    color: #8A95A8;
+    font-size: 10px;
+}
+
+/* =================================
+   TABELA
+================================= */
+
+.table-container {
+    box-sizing: border-box;
+    overflow-x: auto;
+    padding: 0 18px 12px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+    table-layout: auto;
+}
+
+thead {
+    background: #F8FAFC;
+}
+
+th {
+    padding: 10px 10px;
+    color: #8390A5;
+    font-size: 9px;
+    font-weight: 700;
+    text-align: left;
+    letter-spacing: 0.035em;
+}
+
+td {
+    padding: 13px 10px;
+    color: #4C586D;
+    font-size: 10px;
+}
+
+td:first-child {
+    color: #253148;
+    font-weight: 600;
+}
+
+/* =================================
+   STATUS DOS PRODUTOS
+================================= */
+
+.status {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 4px 8px;
+
+    border-radius: 20px;
+
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.status.available {
+    background: #DCFCE7;
+    color: #15803D;
+}
+
+.status.low-stock {
+    background: #FEF3C7;
+    color: #A16207;
+}
+
+.status.out-stock {
+    background: #FEE2E2;
+    color: #B91C1C;
+}
+
+.table-footer {
+    padding: 10px 19px 16px;
+
+    color: #9AA4B4;
+    font-size: 9px;
+}
+
+/* =================================
+   RESPONSIVIDADE
+================================= */
+
+@media (max-width: 1050px) {
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dashboard-content {
+        padding-right: 22px;
+        padding-left: 22px;
+    }
+
+    .topbar {
+        padding: 0 22px;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        position: static;
+        width: 100%;
+        padding: 13px;
+    }
+
+    .logo {
+        padding: 0 5px 13px;
+    }
+
+    .menu-title,
+    .sidebar-profile {
+        display: none;
+    }
+
+    .sidebar-menu {
+        display: flex;
+        overflow-x: auto;
+        gap: 5px;
+    }
+
+    .menu-item {
+        flex: 0 0 auto;
+        min-height: 34px;
+        padding: 0 10px;
+        font-size: 10px;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .topbar {
+        min-height: 52px;
+        padding: 0 15px;
+    }
+
+    .topbar-actions input {
+        width: min(48vw, 190px);
+    }
+
+    .dashboard-content {
+        padding: 22px 15px;
+    }
+
+    .page-heading {
+        align-items: flex-start;
+    }
+
+    .page-heading h1 {
+        font-size: 21px;
+    }
+
+    .stats-grid {
+        gap: 9px;
+    }
+
+    .stat-card {
+        min-height: 83px;
+        padding: 13px;
+    }
+
+    .stat-card h2 {
+        font-size: 20px;
+    }
+
+}
+
+@media (max-width: 420px) {
+
+    .page-heading {
+        flex-direction: column;
+    }
+
+    .btn-primary {
+        min-height: 33px;
+    }
+
+}

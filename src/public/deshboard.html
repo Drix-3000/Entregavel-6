@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Dashboard | Eletro Store</title>
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/deshboard.css" />
+  </head>
+
+  <body>
+    <div class="dashboard-layout">
+      <!-- MENU LATERAL -->
+      <aside class="sidebar">
+        <div class="logo">
+          <div class="logo-icon">E</div>
+          <span>Eletro Store</span>
+        </div>
+
+        <div class="menu-title">MENU PRINCIPAL</div>
+
+        <nav class="sidebar-menu">
+          <a href="/dashboard" class="menu-item active">
+            <span>
+              <img src="./assets/dashboard_24dp.svg" alt="Dashboard" />
+            </span>
+            Dashboard
+          </a>
+
+          <a href="/produtos.html" class="menu-item">
+            <span>
+              <img src="./assets/orders_24dp.svg" alt="Produtos" />
+            </span>
+            Produtos
+          </a>
+
+          <a href="/estoque.html" class="menu-item">
+            <span>
+              <img src="./assets/warehouse_24dp.svg" alt="Estoque" />
+            </span>
+            Estoque
+          </a>
+
+          <a href="/vendas.html" class="menu-item">
+            <span>
+              <img src="./assets/sell_24dp.svg" alt="Vendas" />
+            </span>
+            Vendas
+          </a>
+
+          <a href="/documentos.html" class="menu-item">
+            <span>
+              <img src="./assets/description_24dp.svg" alt="Documentos" />
+            </span>
+            Documentos
+          </a>
+
+          <a href="/contas.html" class="menu-item">
+            <span>
+              <img src="./assets/receipt_24dp.svg" alt="Contas" />
+            </span>
+            Contas
+          </a>
+        </nav>
+
+        <!-- PERFIL DO ADMINISTRADOR -->
+<a href="/conta.html" class="sidebar-profile">
+    <div class="profile-avatar">AD</div>
+
+    <div class="profile-info">
+        <strong>Administrador</strong>
+        <small>admin@eletrostore.com</small>
+    </div>
+</a>
+      </aside>
+
+      <!-- CONTEÚDO PRINCIPAL -->
+      <main class="main-content">
+        <!-- CABEÇALHO -->
+        <header class="topbar">
+          <div class="breadcrumb">Visão geral / <strong>Dashboard</strong></div>
+
+          <div class="topbar-actions">
+            <input
+              type="search"
+              placeholder="Buscar produto..."
+              aria-label="Buscar produto"
+            />
+
+            <div class="top-avatar">AD</div>
+          </div>
+        </header>
+
+        <!-- CONTEÚDO DO DASHBOARD -->
+        <section class="dashboard-content">
+          <!-- TÍTULO DA PÁGINA -->
+          <div class="page-heading">
+            <div>
+              <h1>Dashboard</h1>
+
+              <p>Acompanhe as informações do seu estoque em um só lugar.</p>
+            </div>
+          </div>
+
+          <!-- INDICADORES -->
+          <section class="stats-grid">
+            <article class="stat-card">
+              <div class="stat-label">
+                <span class="stat-indicator blue"></span>
+                Total de produtos
+              </div>
+
+              <h2 id="total-produtos">0</h2>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-label">
+                <span class="stat-indicator green"></span>
+                Itens em estoque
+              </div>
+
+              <h2 id="total-unidades">0</h2>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-label">
+                <span class="stat-indicator yellow"></span>
+                Estoque baixo
+              </div>
+
+              <h2 id="estoque-baixo">0</h2>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-label">
+                <span class="stat-indicator red"></span>
+                Produtos esgotados
+              </div>
+
+              <h2 id="produtos-esgotados">0</h2>
+            </article>
+          </section>
+
+          <!-- PRODUTOS RECENTES -->
+          <section class="content-card">
+            <div class="card-header">
+              <div>
+                <h2>Produtos recentes</h2>
+
+                <p>Visualize os últimos produtos cadastrados no estoque.</p>
+              </div>
+
+              <a href="/produtos.html" class="btn-secondary"> Ver todos </a>
+            </div>
+
+            <!-- TABELA -->
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>PRODUTO</th>
+                    <th>DESCRIÇÃO</th>
+                    <th>PREÇO</th>
+                    <th>QUANTIDADE</th>
+                    <th>STATUS</th>
+                  </tr>
+                </thead>
+
+                <tbody id="produtos-recentes">
+                  <tr>
+                    <td colspan="5">Carregando produtos...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <!-- JAVASCRIPT DO DASHBOARD -->
+    <script src="./js/app.js"></script>
+    <script src="./js/deshboard.js"></script>
+    
+  </body>
+</html>

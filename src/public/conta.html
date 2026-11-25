@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Minha Conta | Eletro Store</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/conta.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">E</div>
+            <span>Eletro Store</span>
+        </div>
+
+        <div class="menu-title">MENU PRINCIPAL</div>
+
+        <nav class="sidebar-menu">
+
+            <a href="/dashboard" class="menu-item">
+                <span><img src="./assets/dashboard_24dp.svg" alt="Dashboard"></span>
+                Dashboard
+            </a>
+
+            <a href="/produtos.html" class="menu-item">
+                <span><img src="./assets/orders_24dp.svg" alt="Produtos"></span>
+                Produtos
+            </a>
+
+            <a href="/estoque.html" class="menu-item">
+                <span><img src="./assets/warehouse_24dp.svg" alt="Estoque"></span>
+                Estoque
+            </a>
+
+            <a href="/vendas.html" class="menu-item">
+                <span><img src="./assets/sell_24dp.svg" alt="Vendas"></span>
+                Vendas
+            </a>
+
+            <a href="/documentos.html" class="menu-item">
+                <span><img src="./assets/description_24dp.svg" alt="Documentos"></span>
+                Documentos
+            </a>
+
+            <a href="/contas.html" class="menu-item">
+                <span><img src="./assets/receipt_24dp.svg" alt="Contas"></span>
+                Contas
+            </a>
+
+        </nav>
+
+        <a href="/conta.html" class="sidebar-profile">
+            <div class="profile-avatar" id="sidebar-avatar">AD</div>
+
+            <div class="profile-info">
+                <strong id="sidebar-nome">Administrador</strong>
+                <small id="sidebar-email">admin@eletrostore.com</small>
+            </div>
+        </a>
+
+    </aside>
+
+    <!-- CONTEÚDO -->
+    <main class="main-content">
+
+        <header class="account-header">
+            <div>
+                <h1>Minha Conta</h1>
+                <p>Gerencie suas informações e configurações de acesso.</p>
+            </div>
+        </header>
+
+        <!-- DADOS DA CONTA -->
+        <section class="account-card">
+
+            <div class="account-card-header">
+                <div>
+                    <h2>Dados pessoais</h2>
+                    <p>Atualize seu nome e endereço de e-mail.</p>
+                </div>
+            </div>
+
+            <form id="form-perfil">
+
+                <div class="account-avatar">
+                    <div id="profile-avatar">AD</div>
+                    <div>
+                        <strong id="profile-nome">Carregando...</strong>
+                        <small>Administrador</small>
+                    </div>
+                </div>
+
+                <div class="account-form-grid">
+
+                    <div class="form-group">
+                        <label for="nome">Nome completo</label>
+                        <input
+                            type="text"
+                            id="nome"
+                            class="form-control"
+                            placeholder="Digite seu nome"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input
+                            type="email"
+                            id="email"
+                            class="form-control"
+                            placeholder="Digite seu e-mail"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+                <div id="mensagem-perfil" class="account-message"></div>
+
+                <div class="account-actions">
+                    <button type="submit" class="btn btn-primary" id="btn-salvar-perfil">
+                        Salvar alterações
+                    </button>
+                </div>
+
+            </form>
+
+        </section>
+
+        <!-- ALTERAR SENHA -->
+        <section class="account-card">
+
+            <div class="account-card-header">
+                <div>
+                    <h2>Segurança</h2>
+                    <p>Altere sua senha de acesso ao sistema.</p>
+                </div>
+            </div>
+
+            <form id="form-senha">
+
+                <div class="account-form-grid">
+
+                    <div class="form-group full-width">
+                        <label for="senha-atual">Senha atual</label>
+                        <input
+                            type="password"
+                            id="senha-atual"
+                            class="form-control"
+                            placeholder="Digite sua senha atual"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nova-senha">Nova senha</label>
+                        <input
+                            type="password"
+                            id="nova-senha"
+                            class="form-control"
+                            placeholder="Mínimo de 6 caracteres"
+                            minlength="6"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmar-senha">Confirmar nova senha</label>
+                        <input
+                            type="password"
+                            id="confirmar-senha"
+                            class="form-control"
+                            placeholder="Digite a nova senha novamente"
+                            minlength="6"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+                <div id="mensagem-senha" class="account-message"></div>
+
+                <div class="account-actions">
+                    <button type="submit" class="btn btn-primary" id="btn-alterar-senha">
+                        Alterar senha
+                    </button>
+                </div>
+
+            </form>
+
+        </section>
+
+        <!-- INFORMAÇÕES DA CONTA -->
+        <section class="account-info">
+            <div>
+                <span class="account-info-icon">i</span>
+            </div>
+
+            <div>
+                <strong>Informações da conta</strong>
+                <p>
+                    As alterações realizadas nesta página são salvas diretamente
+                    no banco de dados do sistema.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="./js/conta.js"></script>
+
+</body>
+</html>

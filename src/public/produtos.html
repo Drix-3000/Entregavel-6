@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Produtos | Eletro Store</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/produtos.css">
+</head>
+
+<body>
+
+    <!-- MENU LATERAL -->
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">E</div>
+            <span>Eletro Store</span>
+        </div>
+
+        <div class="menu-title">MENU PRINCIPAL</div>
+
+        <nav class="sidebar-menu">
+            <a href="/dashboard" class="menu-item">
+                <span>
+                    <img src="./assets/dashboard_24dp.svg" alt="Dashboard">
+                </span>
+                Dashboard
+            </a>
+
+            <a href="/produtos.html" class="menu-item active">
+                <span>
+                    <img src="./assets/orders_24dp.svg" alt="Produtos">
+                </span>
+                Produtos
+            </a>
+
+            <a href="/estoque.html" class="menu-item">
+                <span>
+                    <img src="./assets/warehouse_24dp.svg" alt="Estoque">
+                </span>
+                Estoque
+            </a>
+
+            <a href="/vendas.html" class="menu-item">
+                <span>
+                    <img src="./assets/sell_24dp.svg" alt="Vendas">
+                </span>
+                Vendas
+            </a>
+
+            <a href="/documentos.html" class="menu-item">
+                <span>
+                    <img src="./assets/description_24dp.svg" alt="Documentos">
+                </span>
+                Documentos
+            </a>
+
+            <a href="/contas.html" class="menu-item">
+                <span>
+                    <img src="./assets/receipt_24dp.svg" alt="Contas">
+                </span>
+                Contas
+            </a>
+        </nav>
+
+        <!-- PERFIL DO ADMINISTRADOR -->
+<a href="/conta.html" class="sidebar-profile">
+    <div class="profile-avatar">AD</div>
+
+    <div class="profile-info">
+        <strong>Administrador</strong>
+        <small>admin@eletrostore.com</small>
+    </div>
+</a>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content">
+
+        <header class="products-header">
+            <div>
+                <h1>Produtos</h1>
+                <p>Gerencie o catálogo de produtos da sua loja.</p>
+            </div>
+
+            <button id="btn-novo-produto" class="btn-primary">
+                + Novo produto
+            </button>
+        </header>
+
+        <!-- ÁREA DE GERENCIAMENTO -->
+        <section class="products-section">
+
+            <div class="products-toolbar">
+
+                <div class="products-toolbar-title">
+                    <h2>Catálogo de produtos</h2>
+                    <p>Consulte, pesquise e gerencie seus produtos cadastrados.</p>
+                </div>
+
+                <div class="products-filters">
+
+                    <input
+                        type="search"
+                        id="pesquisa-produto"
+                        placeholder="Pesquisar produto..."
+                    >
+
+                    <select id="filtro-status">
+                        <option value="todos">Todos os produtos</option>
+                        <option value="disponivel">Disponíveis</option>
+                        <option value="baixo">Estoque baixo</option>
+                        <option value="esgotado">Esgotados</option>
+                    </select>
+
+                    <select id="ordenacao-produtos">
+                        <option value="recentes">Mais recentes</option>
+                        <option value="nome">Nome: A–Z</option>
+                        <option value="preco-menor">Menor preço</option>
+                        <option value="preco-maior">Maior preço</option>
+                        <option value="estoque">Maior estoque</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+            <!-- TABELA -->
+            <div class="products-table-container">
+
+                <table class="products-table">
+
+                    <thead>
+                        <tr>
+                            <th>PRODUTO</th>
+                            <th>DESCRIÇÃO</th>
+                            <th>PREÇO</th>
+                            <th>ESTOQUE</th>
+                            <th>STATUS</th>
+                            <th>AÇÕES</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="lista-produtos">
+                        <tr>
+                            <td colspan="6" class="table-loading">
+                                Carregando produtos...
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <footer class="products-table-footer">
+                <span id="contador-produtos">
+                    0 produtos encontrados
+                </span>
+            </footer>
+
+        </section>
+
+    </main>
+
+    <!-- MODAL DE CADASTRO / EDIÇÃO -->
+    <div class="modal-overlay" id="modal-produto">
+
+        <div class="modal">
+
+            <div class="modal-header">
+                <div>
+                    <h2 id="modal-titulo">Novo produto</h2>
+                    <p>Preencha as informações do produto.</p>
+                </div>
+
+                <button
+                    type="button"
+                    id="btn-fechar-modal"
+                    class="btn-close"
+                >
+                    &times;
+                </button>
+            </div>
+
+            <form id="form-produto">
+
+                <input type="hidden" id="produto-id">
+
+                <div class="form-group">
+                    <label for="produto-nome">Nome do produto *</label>
+                    <input
+                        type="text"
+                        id="produto-nome"
+                        maxlength="120"
+                        required
+                        placeholder="Ex: Teclado Mecânico RGB"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="produto-descricao">Descrição</label>
+                    <textarea
+                        id="produto-descricao"
+                        rows="3"
+                        placeholder="Descrição do produto..."
+                    ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="produto-imagem">URL da imagem</label>
+                    <input
+                        type="url"
+                        id="produto-imagem"
+                        placeholder="https://exemplo.com/imagem.jpg"
+                    >
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="produto-preco">Preço (R$) *</label>
+                        <input
+                            type="number"
+                            id="produto-preco"
+                            min="0"
+                            step="0.01"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="produto-quantidade">Quantidade *</label>
+                        <input
+                            type="number"
+                            id="produto-quantidade"
+                            min="0"
+                            step="1"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+                <p id="mensagem-form" class="form-message"></p>
+
+                <div class="modal-actions">
+                    <button
+                        type="button"
+                        id="btn-cancelar"
+                        class="btn-secondary"
+                    >
+                        Cancelar
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="btn-primary"
+                        id="btn-salvar"
+                    >
+                        Salvar produto
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="./js/products.js"></script>
+
+</body>
+</html>

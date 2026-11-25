@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque | Eletro Store</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/estoque.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">E</div>
+            <span>Eletro Store</span>
+        </div>
+
+        <div class="menu-title">MENU PRINCIPAL</div>
+
+        <nav class="sidebar-menu">
+            <a href="/dashboard" class="menu-item">
+                <span><img src="./assets/dashboard_24dp.svg" alt="Dashboard"></span>
+                Dashboard
+            </a>
+
+            <a href="/produtos.html" class="menu-item">
+                <span><img src="./assets/orders_24dp.svg" alt="Produtos"></span>
+                Produtos
+            </a>
+
+            <a href="/estoque.html" class="menu-item active">
+                <span><img src="./assets/warehouse_24dp.svg" alt="Estoque"></span>
+                Estoque
+            </a>
+
+            <a href="/vendas.html" class="menu-item">
+                <span><img src="./assets/sell_24dp.svg" alt="Vendas"></span>
+                Vendas
+            </a>
+
+            <a href="/documentos.html" class="menu-item">
+                <span><img src="./assets/description_24dp.svg" alt="Documentos"></span>
+                Documentos
+            </a>
+
+            <a href="/contas.html" class="menu-item">
+                <span><img src="./assets/receipt_24dp.svg" alt="Contas"></span>
+                Contas
+            </a>
+        </nav>
+
+<a href="/conta.html" class="sidebar-profile">
+    <div class="profile-avatar">AD</div>
+
+    <div class="profile-info">
+        <strong>Administrador</strong>
+        <small>admin@eletrostore.com</small>
+    </div>
+</a>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="stock-header">
+            <div>
+                <h1>Controle de Estoque</h1>
+                <p>Gerencie entradas, saídas e disponibilidade dos produtos.</p>
+            </div>
+
+            <button class="btn btn-primary" id="btn-atualizar">
+                ↻ Atualizar estoque
+            </button>
+        </header>
+
+        <!-- INDICADORES -->
+        <section class="stock-summary">
+
+            <div class="stock-card">
+                <div class="stock-card-icon blue"><img src="./assets/deployed_code_24dp.svg" alt="total"></div>
+                <div>
+                    <span>Total de produtos</span>
+                    <strong id="total-produtos">0</strong>
+                </div>
+            </div>
+
+            <div class="stock-card">
+                <div class="stock-card-icon green"><img src="./assets/orders_24dp.svg" alt="unitis"></div>
+                <div>
+                    <span>Unidades em estoque</span>
+                    <strong id="total-unidades">0</strong>
+                </div>
+            </div>
+
+            <div class="stock-card">
+                <div class="stock-card-icon orange"><img src="./assets/warning_24dp.svg" alt="warning"></div>
+                <div>
+                    <span>Estoque baixo</span>
+                    <strong id="estoque-baixo">0</strong>
+                </div>
+            </div>
+
+            <div class="stock-card">
+                <div class="stock-card-icon red"><img src="./assets/dangerous_24dp.svg" alt="dangerus"></div>
+                <div>
+                    <span>Produtos esgotados</span>
+                    <strong id="produtos-esgotados">0</strong>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- TABELA -->
+        <section class="stock-panel">
+
+            <div class="stock-toolbar">
+                <div>
+                    <h2>Posição do estoque</h2>
+                    <p>Consulte e gerencie as quantidades disponíveis.</p>
+                </div>
+
+                <div class="stock-filters">
+                    <input
+                        type="search"
+                        id="pesquisa-estoque"
+                        placeholder="Pesquisar produto..."
+                    >
+
+                    <select id="filtro-estoque">
+                        <option value="todos">Todos os produtos</option>
+                        <option value="disponivel">Disponíveis</option>
+                        <option value="baixo">Estoque baixo</option>
+                        <option value="esgotado">Esgotados</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="stock-table-container">
+                <table class="stock-table">
+                    <thead>
+                        <tr>
+                            <th>PRODUTO</th>
+                            <th>PREÇO</th>
+                            <th>QUANTIDADE</th>
+                            <th>SITUAÇÃO</th>
+                            <th>AÇÕES</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="lista-estoque">
+                        <tr>
+                            <td colspan="5" class="table-loading">
+                                Carregando estoque...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="stock-footer">
+                <span id="contador-estoque">0 produtos encontrados</span>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- MODAL DE MOVIMENTAÇÃO -->
+    <div class="modal-overlay" id="modal-movimentacao">
+        <div class="modal">
+
+            <div class="modal-header">
+                <div>
+                    <h2 id="titulo-modal">Registrar movimentação</h2>
+                    <p id="nome-produto-modal">Produto selecionado</p>
+                </div>
+
+                <button class="btn-close" id="btn-fechar-modal">&times;</button>
+            </div>
+
+            <form id="form-movimentacao">
+
+                <input type="hidden" id="movimento-produto-id">
+
+                <div class="form-group">
+                    <label for="tipo-movimentacao">Tipo de movimentação</label>
+                    <select id="tipo-movimentacao" class="form-control" required>
+                        <option value="entrada">Entrada de mercadoria</option>
+                        <option value="saida">Saída de mercadoria</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="quantidade-movimentacao">Quantidade</label>
+                    <input
+                        type="number"
+                        id="quantidade-movimentacao"
+                        class="form-control"
+                        min="1"
+                        step="1"
+                        placeholder="Digite a quantidade"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="observacao-movimentacao">Observação (opcional)</label>
+                    <textarea
+                        id="observacao-movimentacao"
+                        class="form-control"
+                        rows="3"
+                        placeholder="Ex.: Reposição de mercadoria"
+                    ></textarea>
+                </div>
+
+                <div id="mensagem-movimentacao" class="form-message"></div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="btn-cancelar">
+                        Cancelar
+                    </button>
+
+                    <button type="submit" class="btn btn-primary" id="btn-salvar-movimentacao">
+                        Registrar movimentação
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL DE HISTÓRICO -->
+    <div class="modal-overlay" id="modal-historico">
+        <div class="modal modal-history">
+
+            <div class="modal-header">
+                <div>
+                    <h2>Histórico de movimentações</h2>
+                    <p id="nome-produto-historico">Produto</p>
+                </div>
+
+                <button class="btn-close" id="btn-fechar-historico">&times;</button>
+            </div>
+
+            <div class="history-content" id="lista-historico">
+                <p class="table-loading">Carregando histórico...</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./js/estoque.js"></script>
+</body>
+</html>

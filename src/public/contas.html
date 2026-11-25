@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contas | Eletro Store</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/contas.css">
+</head>
+
+<body>
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">E</div>
+            <span>Eletro Store</span>
+        </div>
+
+        <div class="menu-title">MENU PRINCIPAL</div>
+
+        <nav class="sidebar-menu">
+
+            <a href="/dashboard" class="menu-item">
+                <span><img src="./assets/dashboard_24dp.svg" alt="Dashboard"></span>
+                Dashboard
+            </a>
+
+            <a href="/produtos.html" class="menu-item">
+                <span><img src="./assets/orders_24dp.svg" alt="Produtos"></span>
+                Produtos
+            </a>
+
+            <a href="/estoque.html" class="menu-item">
+                <span><img src="./assets/warehouse_24dp.svg" alt="Estoque"></span>
+                Estoque
+            </a>
+
+            <a href="/vendas.html" class="menu-item">
+                <span><img src="./assets/sell_24dp.svg" alt="Vendas"></span>
+                Vendas
+            </a>
+
+            <a href="/documentos.html" class="menu-item">
+                <span><img src="./assets/description_24dp.svg" alt="Documentos"></span>
+                Documentos
+            </a>
+
+            <a href="/contas.html" class="menu-item active">
+                <span><img src="./assets/receipt_24dp.svg" alt="Contas"></span>
+                Contas
+            </a>
+
+        </nav>
+
+<a href="/conta.html" class="sidebar-profile">
+    <div class="profile-avatar">AD</div>
+
+    <div class="profile-info">
+        <strong>Administrador</strong>
+        <small>admin@eletrostore.com</small>
+    </div>
+</a>
+
+    </aside>
+
+    <main class="main-content">
+
+        <header class="accounts-header">
+
+            <div>
+                <h1>Contas</h1>
+                <p>Gerencie os recebimentos e acompanhe os valores pendentes.</p>
+            </div>
+
+            <button class="btn btn-secondary" id="btn-atualizar">
+                Atualizar
+            </button>
+
+        </header>
+
+        <!-- RESUMO FINANCEIRO -->
+
+        <section class="accounts-summary">
+
+            <div class="account-card">
+                <div class="account-icon blue">R$</div>
+
+                <div>
+                    <span>Total vendido a prazo</span>
+                    <strong id="total-vendido">R$ 0,00</strong>
+                </div>
+            </div>
+
+            <div class="account-card">
+                <div class="account-icon green">R$</div>
+
+                <div>
+                    <span>Total recebido</span>
+                    <strong id="total-recebido">R$ 0,00</strong>
+                </div>
+            </div>
+
+            <div class="account-card">
+                <div class="account-icon orange">R$</div>
+
+                <div>
+                    <span>Saldo pendente</span>
+                    <strong id="total-pendente">R$ 0,00</strong>
+                </div>
+            </div>
+
+            <div class="account-card">
+                <div class="account-icon red">!</div>
+
+                <div>
+                    <span>Contas em aberto</span>
+                    <strong id="quantidade-pendentes">0</strong>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- CONTAS A RECEBER -->
+
+        <section class="accounts-section">
+
+            <div class="accounts-toolbar">
+
+                <div>
+                    <h2>Contas a receber</h2>
+                    <p>Vendas realizadas a prazo que possuem saldo em aberto.</p>
+                </div>
+
+                <div class="accounts-filters">
+
+                    <input
+                        type="text"
+                        id="pesquisa-conta"
+                        placeholder="Pesquisar cliente ou venda..."
+                    >
+
+                    <select id="filtro-status">
+                        <option value="todas">Todas</option>
+                        <option value="pendente">Pendentes</option>
+                        <option value="parcial">Parcialmente pagas</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="accounts-table-container">
+
+                <table class="accounts-table">
+
+                    <thead>
+                        <tr>
+                            <th>VENDA</th>
+                            <th>CLIENTE</th>
+                            <th>DATA</th>
+                            <th>VALOR TOTAL</th>
+                            <th>VALOR PAGO</th>
+                            <th>SALDO</th>
+                            <th>STATUS</th>
+                            <th>AÇÕES</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="lista-contas">
+
+                        <tr>
+                            <td colspan="8">Carregando contas...</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="accounts-footer">
+                <span id="contador-contas">0 contas encontradas</span>
+            </div>
+
+        </section>
+
+        <!-- HISTÓRICO DE PAGAMENTOS -->
+
+        <section class="accounts-section payments-section">
+
+            <div class="accounts-toolbar">
+
+                <div>
+                    <h2>Histórico de pagamentos</h2>
+                    <p>Pagamentos registrados nas vendas a prazo.</p>
+                </div>
+
+            </div>
+
+            <div class="accounts-table-container">
+
+                <table class="accounts-table">
+
+                    <thead>
+                        <tr>
+                            <th>VENDA</th>
+                            <th>CLIENTE</th>
+                            <th>DATA</th>
+                            <th>FORMA DE PAGAMENTO</th>
+                            <th>VALOR RECEBIDO</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="lista-pagamentos">
+
+                        <tr>
+                            <td colspan="5">Carregando pagamentos...</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- MODAL DE PAGAMENTO -->
+
+    <div class="modal-overlay" id="modal-pagamento">
+
+        <div class="payment-modal">
+
+            <div class="payment-modal-header">
+
+                <div>
+                    <h2>Registrar pagamento</h2>
+                    <p>Informe os dados do recebimento.</p>
+                </div>
+
+                <button class="modal-close" id="btn-fechar-modal">
+                    &times;
+                </button>
+
+            </div>
+
+            <form id="form-pagamento">
+
+                <input type="hidden" id="pagamento-venda-id">
+
+                <div class="payment-sale-info">
+
+                    <div>
+                        <span>Venda</span>
+                        <strong id="pagamento-venda">#0</strong>
+                    </div>
+
+                    <div>
+                        <span>Cliente</span>
+                        <strong id="pagamento-cliente">-</strong>
+                    </div>
+
+                    <div>
+                        <span>Saldo devedor</span>
+                        <strong id="pagamento-saldo">R$ 0,00</strong>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="valor-pagamento">Valor recebido</label>
+
+                    <input
+                        type="number"
+                        id="valor-pagamento"
+                        class="form-control"
+                        min="0.01"
+                        step="0.01"
+                        placeholder="0,00"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="forma-pagamento">Forma de pagamento</label>
+
+                    <select
+                        id="forma-pagamento"
+                        class="form-control"
+                        required
+                    >
+                        <option value="">Selecione</option>
+                        <option value="dinheiro">Dinheiro</option>
+                        <option value="pix">PIX</option>
+                        <option value="cartao">Cartão</option>
+                        <option value="transferencia">Transferência</option>
+                    </select>
+                </div>
+
+                <div id="mensagem-pagamento"></div>
+
+                <div class="payment-modal-actions">
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        id="btn-cancelar"
+                    >
+                        Cancelar
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                        id="btn-salvar-pagamento"
+                    >
+                        Registrar pagamento
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="./js/contas.js"></script>
+
+</body>
+</html>

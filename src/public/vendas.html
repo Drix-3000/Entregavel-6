@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendas | Eletro Store</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/vendas.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">E</div>
+            <span>Eletro Store</span>
+        </div>
+
+        <div class="menu-title">MENU PRINCIPAL</div>
+
+        <nav class="sidebar-menu">
+            <a href="/dashboard" class="menu-item">
+                <span><img src="./assets/dashboard_24dp.svg" alt="Dashboard"></span>
+                Dashboard
+            </a>
+
+            <a href="/produtos.html" class="menu-item">
+                <span><img src="./assets/orders_24dp.svg" alt="Produtos"></span>
+                Produtos
+            </a>
+
+            <a href="/estoque.html" class="menu-item">
+                <span><img src="./assets/warehouse_24dp.svg" alt="Estoque"></span>
+                Estoque
+            </a>
+
+            <a href="/vendas.html" class="menu-item active">
+                <span><img src="./assets/sell_24dp.svg" alt="Vendas"></span>
+                Vendas
+            </a>
+
+            <a href="/documentos.html" class="menu-item">
+                <span><img src="./assets/description_24dp.svg" alt="Documentos"></span>
+                Documentos
+            </a>
+
+            <a href="/contas.html" class="menu-item">
+                <span><img src="./assets/receipt_24dp.svg" alt="Contas"></span>
+                Contas
+            </a>
+        </nav>
+
+<a href="/conta.html" class="sidebar-profile">
+    <div class="profile-avatar">AD</div>
+
+    <div class="profile-info">
+        <strong>Administrador</strong>
+        <small>admin@eletrostore.com</small>
+    </div>
+</a>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="sales-header">
+            <div>
+                <h1>Vendas</h1>
+                <p>Registre vendas e acompanhe as operações da loja.</p>
+            </div>
+
+            <button class="btn btn-primary" id="btn-atualizar-vendas">
+                ↻ Atualizar
+            </button>
+        </header>
+
+        <section class="sales-layout">
+
+            <!-- ÁREA DE PRODUTOS -->
+            <div class="sale-products-panel">
+
+                <div class="panel-heading">
+                    <div>
+                        <h2>Selecionar produtos</h2>
+                        <p>Adicione os produtos ao carrinho.</p>
+                    </div>
+                </div>
+
+                <div class="product-search">
+                    <input
+                        type="search"
+                        id="pesquisa-produto-venda"
+                        placeholder="Pesquisar produto..."
+                    >
+                </div>
+
+                <div class="sale-products-list" id="lista-produtos-venda">
+                    <p class="table-loading">Carregando produtos...</p>
+                </div>
+
+            </div>
+
+            <!-- CARRINHO E FINALIZAÇÃO -->
+            <div class="sale-cart-panel">
+
+                <div class="panel-heading">
+                    <div>
+                        <h2>Nova venda</h2>
+                        <p>Dados do cliente e itens selecionados.</p>
+                    </div>
+
+                    <span class="cart-count" id="quantidade-itens">0 itens</span>
+                </div>
+
+                <div class="cart-items" id="lista-carrinho">
+                    <div class="cart-empty">
+                        <span><img src="./assets/shopping_cart_24dp_000000.svg" alt="cart"></span>
+                        <p>Seu carrinho está vazio.</p>
+                        <small>Selecione produtos para começar.</small>
+                    </div>
+                </div>
+
+                <div class="cart-total">
+                    <span>Total da venda</span>
+                    <strong id="total-venda">R$ 0,00</strong>
+                </div>
+
+                <div class="customer-form">
+
+                    <h3>Dados do cliente</h3>
+
+                    <div class="form-group">
+                        <label for="cliente-nome">Nome do cliente</label>
+                        <input
+                            type="text"
+                            id="cliente-nome"
+                            class="form-control"
+                            placeholder="Nome completo"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cliente-documento">CPF / CNPJ</label>
+                        <input
+                            type="text"
+                            id="cliente-documento"
+                            class="form-control"
+                            placeholder="Documento do cliente"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipo-venda">Tipo de venda</label>
+                        <select id="tipo-venda" class="form-control">
+                            <option value="avista">À vista</option>
+                            <option value="prazo">A prazo</option>
+                        </select>
+                    </div>
+
+                    <div id="aviso-prazo" class="sale-warning">
+                        Esta venda será registrada como pendente em Contas.
+                    </div>
+
+                    <div id="mensagem-venda" class="form-message"></div>
+
+                    <button class="btn btn-primary btn-finalizar" id="btn-finalizar-venda">
+                        Finalizar venda
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- HISTÓRICO -->
+        <section class="sales-history-panel">
+
+            <div class="panel-heading">
+                <div>
+                    <h2>Vendas recentes</h2>
+                    <p>Últimas operações registradas no sistema.</p>
+                </div>
+            </div>
+
+            <div class="sales-table-container">
+                <table class="sales-table">
+                    <thead>
+                        <tr>
+                            <th>VENDA</th>
+                            <th>CLIENTE</th>
+                            <th>DATA</th>
+                            <th>TIPO</th>
+                            <th>VALOR</th>
+                            <th>SITUAÇÃO</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="lista-vendas">
+                        <tr>
+                            <td colspan="6" class="table-loading">
+                                Carregando vendas...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="sales-history-footer">
+                <span id="contador-vendas">0 vendas encontradas</span>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="./js/vendas.js"></script>
+</body>
+</html>
